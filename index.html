@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fish Shop</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -13,7 +13,11 @@
     <div class="nav-links">
       <a href="#shop">Shop</a>
       <a href="#contact">Contact</a>
-      <div class="basket" onclick="toggleCart()">Cart</div>
+      <div class="basket" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</div>
+      <form id="searchForm" class="search-form">
+        <input type="text" id="searchInput" placeholder="🔍 Search fish..." />
+      </form>
+      
     </div>
   </nav>
 
@@ -21,64 +25,68 @@
     <h1>New Arrivals: Exotic Fish for Your Aquarium</h1>
   </section>
 
+ 
+
   <section id="shop" class="shop">
     <h2>Available Fish</h2>
     <div class="product-grid">
+  
+    
+
+
       <div class="card">
-        <img src="images/fish1.jpg" alt="Golden Guppy">
-        <h3>Golden Guppy</h3>
+        <img src="images/fish1.jpg" alt="Golden Guppy" />
+        <h3 class="card-title">Golden Guppy</h3>
         <p>Bright and peaceful aquarium fish.</p>
         <div class="price">€4.99</div>
         <button onclick="addToCart('Golden Guppy', 4.99)">Add to Cart</button>
       </div>
-      <div class="cart-modal" id="cart-modal">
-        <div class="cart-content">
-          <h2>Your Cart</h2>
-          <ul id="cart-items"></ul>
-          <div class="cart-actions">
-            <button onclick="toggleCheckout()">Checkout</button>
-            <button onclick="toggleCart()">Close</button>
-          </div>
-        </div>
-      </div>
-      
+
       <div class="card">
-        <img src="images/fish2.jpg" alt="Neon Tetra">
-        <h3>Neon Tetra</h3>
+        <img src="images/fish2.jpg" alt="Neon Tetra" />
+        <h3 class="card-title">Neon Tetra</h3>
         <p>Colorful schooling fish, perfect for beginners.</p>
         <div class="price">€3.49</div>
         <button onclick="addToCart('Neon Tetra', 3.49)">Add to Cart</button>
       </div>
+
       <div class="card">
-        <img src="images/fish3.jpg" alt="Betta Fish">
-        <h3>Betta Fish</h3>
+        <img src="images/fish3.jpg" alt="Betta Fish" />
+        <h3 class="card-title">Betta Fish</h3>
         <p>Vibrant and easy to care for, great for small tanks.</p>
         <div class="price">€5.99</div>
         <button onclick="addToCart('Betta Fish', 5.99)">Add to Cart</button>
       </div>
+
       <div class="card">
-        <img src="images/fish4.jpg" alt="Molly Fish">
-        <h3>Molly Fish</h3>
+        <img src="images/fish4.jpg" alt="Molly Fish" />
+        <h3 class="card-title">Molly Fish</h3>
         <p>Active and colorful fish, perfect for community tanks.</p>
         <div class="price">€4.25</div>
         <button onclick="addToCart('Molly Fish', 4.25)">Add to Cart</button>
       </div>
+
       <div class="card">
-        <img src="images/fish5.jpg" alt="Cory Catfish">
-        <h3>Cory Catfish</h3>
+        <img src="images/fish5.jpg" alt="Cory Catfish" />
+        <h3 class="card-title">Cory Catfish</h3>
         <p>Bottom dweller that helps keep your tank clean.</p>
         <div class="price">€3.99</div>
         <button onclick="addToCart('Cory Catfish', 3.99)">Add to Cart</button>
       </div>
+
       <div class="card">
-        <img src="images/fish6.jpg" alt="Swordtail Fish">
-        <h3>Swordtail Fish</h3>
+        <img src="images/fish6.jpg" alt="Swordtail Fish" />
+        <h3 class="card-title">Swordtail Fish</h3>
         <p>Peaceful and hardy fish with a distinctive tail.</p>
         <div class="price">€4.75</div>
         <button onclick="addToCart('Swordtail Fish', 4.75)">Add to Cart</button>
       </div>
+
+
+      
     </div>
   </section>
+
 
   <div class="cart-modal" id="cartModal">
     <div class="cart-content">
@@ -94,12 +102,26 @@
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
       <textarea rows="4" placeholder="Your Message"></textarea>
       <button type="submit">Send</button>
     </form>
   </section>
+ 
+<div class="cart-modal" id="cart-modal">
+  <div class="cart-content">
+    <h2>🛒 Ваша корзина</h2>
+    <div class="cart-items-grid" id="cart-items-grid">
+
+    </div>
+    <div class="cart-actions">
+      <button onclick="checkout()">Оформить заказ</button>
+      <button onclick="toggleCart()">Закрыть</button>
+    </div>
+  </div>
+</div>
+
 
   <footer class="footer-container">
     <div class="footer-column">
